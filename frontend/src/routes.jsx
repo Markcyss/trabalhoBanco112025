@@ -1,13 +1,15 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Inicio from "./pages/Inicio";
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
 
 function Navegacao() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<LoginCadastro />}/>
-        <Route path="/cadastro" element={<LoginCadastro />}/>
+        <Route path="/" element={<Inicio />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/cadastro" element={<Cadastro />}/>
       </Routes>
     </BrowserRouter>
   );
