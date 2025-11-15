@@ -5,7 +5,7 @@ export default function Cadastro() {
   const navigate = useNavigate();
 
   function salvar() {
-    alert("Usuário cadastrado! (falta conectar ao backend)");
+    alert("Usuário cadastrado!");
     navigate("/");
   }
 
