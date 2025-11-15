@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Cadastro() {
+export default function CadastroADM() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -12,12 +12,12 @@ export default function Cadastro() {
 
     async function salvar() {
         try {
-            await axios.post("http://localhost:5010/contauser", {
+            await axios.post("http://localhost:5010/contaadm", {
             nome,
             email,
             senha
             });
-            alert("Usuário cadastrado!");
+            alert("Admin cadastrado!");
             navigate("/");
         } catch (err) {
             alert("Erro ao cadastrar");
@@ -26,9 +26,9 @@ export default function Cadastro() {
 
 
   return (
-    <div className="container-cadastro">
-        <div className="cadastro-main">
-            <h1>Cadastro Usuario</h1>
+    <div className="container-cadastroadm">
+        <div className="cadastroadm-main">
+            <h1>Cadastro de Admin</h1>
 
                 <input type="text" placeholder="Nome" value={nome} onChange={(e)=> setNome(e.target.value)} />
                 <input type="email" placeholder="Email" value={email} onChange={(e)=> setEmail(e.target.value)} />
@@ -36,7 +36,7 @@ export default function Cadastro() {
 
             <button onClick={salvar}>Salvar</button>
 
-            <p onClick={() => navigate("/cadastroadm")}>Cadastro de Admin</p>
+            <p onClick={() => navigate("/cadastro")}>Cadastro de Usuario</p>
             <p onClick={() => navigate("/")}>Logar</p>
         </div>
     </div>

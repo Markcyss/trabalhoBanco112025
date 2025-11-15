@@ -31,23 +31,25 @@ export default function Inicio() {
   }
 
   return (
-    <div className="inicio-page">
-      <h1>
-        {user?.tipo === "admin" ? "Área do Administrador" : "Hello World"}
-      </h1>
+    <div className="container-inicio">
+      <div className="inicio-pagina">
+        <h1>
+          {user?.tipo === "admin" ? "Área do Administrador" : "Hello World"}
+        </h1>
 
-      {user?.tipo === "admin" && (
-        <div>
-          <h2>Total de usuários: {contagem}</h2>
-          <ul>
-            {usuarios.map((u, i) => (
-              <li key={i}>{u.nome} - {u.email}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+        {user?.tipo === "admin" && (
+          <div>
+            <h2>Total de usuários: {contagem}</h2>
+            <ul>
+              {usuarios.map((u, i) => (
+                <li key={i}>{u.nome} - {u.email}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-      <button onClick={logout}>Sair</button>
+        <button onClick={logout}>Sair</button>
+      </div>
     </div>
   );
 }
