@@ -2,7 +2,7 @@ import { connection } from "./connection.js";
 
 export async function verificarUsuarios() {
     const comando = `
-        select nome, email, cargo_adm
+        select nome, email, role
             from usuario;
     `
 

@@ -7,13 +7,13 @@ const autenticador = getAuthentication();
 
 const endpoints = Router();
 
-endpoints.get('/usuarios', async (req, resp) => {
+endpoints.get('/usuarios', autenticador, async (req, resp) => {
     const registros = await repoADM.verificarUsuarios();
 
     resp.send(registros);
 })
 
-endpoints.get('/contagem', async (req, resp) => {
+endpoints.get('/contagem', autenticador, async (req, resp) => {
     const contagem = await repoADM.contagemUsuarios();
 
     resp.send(contagem);

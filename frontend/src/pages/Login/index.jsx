@@ -9,10 +9,15 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  function entrar() {
-    login(email, senha);
-    navigate("/inicio");
-  }
+    async function entrar() {
+        try {
+            await login(email, senha);
+            navigate("/inicio");
+        } catch (err) {
+            alert("Login inválido");
+        }
+    }
+
 
   return (
     <div className="login-page">
