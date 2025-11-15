@@ -1,10 +1,4 @@
--- Data Definition Language
--- Usado para criações, tanto do banco quanto de tabelas.
-
-drop database if exists trabalhobancobim4;
-
 create database trabalhobancobim4;
-
 use trabalhobancobim4;
 
 create table usuario (
@@ -12,5 +6,6 @@ create table usuario (
     nome varchar(255),
     email varchar(100),
     senha varchar(255),
-    cargo_adm boolean
+    role varchar(100)
 );
+

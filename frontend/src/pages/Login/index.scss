@@ -1,0 +1,21 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 80px auto;
+  gap: 12px;
+
+  input {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  p {
+    cursor: pointer;
+    color: blue;
+  }
+}

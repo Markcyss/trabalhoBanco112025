@@ -1,24 +1,23 @@
-import { useState } from 'react';
-import './index.scss';
+import "./index.scss";
+import { useNavigate } from "react-router-dom";
 
-function Cadastro() {
-    return (
-        <>
-            <div className='container-login'>
-                <div>
-                    <h1>Cadastro</h1>
-                    <h3>Nome de Usuario</h3>
-                    <input type="text" placeholder='nome' />
-                    <h3>Email</h3>
-                    <input type="text" placeholder='email' />
-                    <h3>Senha</h3>
-                    <input type="text" placeholder='senha' />
-                    <h3>Confirme a Senha</h3>
-                    <input type="text" placeholder='confirme a senha' />
-                </div>
-            </div>
-        </>
-    )
+export default function Cadastro() {
+  const navigate = useNavigate();
+
+  function salvar() {
+    alert("Usuário cadastrado! (falta conectar ao backend)");
+    navigate("/");
+  }
+
+  return (
+    <div className="cadastro-page">
+      <h1>Cadastrar</h1>
+
+      <input type="text" placeholder="Nome" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Senha" />
+
+      <button onClick={salvar}>Salvar</button>
+    </div>
+  );
 }
-
-export default Cadastro;

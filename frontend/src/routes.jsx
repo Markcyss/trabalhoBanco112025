@@ -1,18 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import Inicio from "./pages/Inicio";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
+import Inicio from "./pages/Inicio";
+import { useAuth } from "./components/Autenticacao/Auth";
 
-function Navegacao() {
+export default function Navegacao() {
+  const { user } = useAuth();
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Inicio />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/cadastro" element={<Cadastro />}/>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/cadastro" element={<Cadastro />} />
+      <Route
+        path="/inicio"
+        element={user ? <Inicio /> : <Navigate to="/" />}
+      />
+    </Routes>
   );
 }
-
-export default Navegacao;
