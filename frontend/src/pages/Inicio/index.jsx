@@ -1,3 +1,4 @@
+import "./index.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../components/Autenticacao/Auth";
@@ -32,24 +33,24 @@ export default function Inicio() {
 
   return (
     <div className="container-inicio">
-      <div className="inicio-pagina">
         <h1>
           {user?.tipo === "admin" ? "Área do Administrador" : "Hello World"}
         </h1>
 
         {user?.tipo === "admin" && (
-          <div>
+          <div className="inicio-pagina">
             <h2>Total de usuários: {contagem}</h2>
-            <ul>
-              {usuarios.map((u, i) => (
-                <li key={i}>{u.nome} - {u.email}</li>
-              ))}
-            </ul>
+            <div className="info">
+              <ul>
+                {usuarios.map((u, i) => (
+                  <li className="unidadelista" key={i}>{u.nome} - {u.email}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
 
         <button onClick={logout}>Sair</button>
-      </div>
     </div>
   );
 }
