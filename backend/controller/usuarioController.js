@@ -10,7 +10,7 @@ const endpoints = Router();
 endpoints.post('/contauser', async (req, resp) => {
     const novoUser = req.body;
 
-    const registro = await repoUsuario.verificarCredenciais(novoUser.email, novoUser.senha);
+    const registro = await repoUsuario.verificarExistencia(novoUser.email);
     console.log(registro);
 
     if (!registro) {
@@ -18,7 +18,7 @@ endpoints.post('/contauser', async (req, resp) => {
         resp.send({novoId: id});
     }
     else {
-        resp.send("Usuario já cadastrado");
+        resp.status(400).send({ erro: "Usuario já cadastrado"});
     }
 })
 
@@ -33,7 +33,7 @@ endpoints.post('/contaadm', async (req, resp) => {
         resp.send({novoId: id});
     }
     else {
-        resp.send("Usuario já cadastrado");
+        resp.status(400).send({ erro: "Usuario já cadastrado"});
     }
 })
 
