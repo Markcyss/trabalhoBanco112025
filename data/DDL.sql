@@ -10,7 +10,7 @@ use trabalhobancobim4;
 create table usuario (
 	id int primary key auto_increment,
     nome varchar(255),
-    email varchar(100),
+    email varchar(100) unique not null,
     senha varchar(255),
-    cargo_adm boolean
+    role varchar(100)
 );
