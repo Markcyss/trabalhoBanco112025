@@ -11,7 +11,6 @@ endpoints.post('/contauser', async (req, resp) => {
     const novoUser = req.body;
 
     const registro = await repoUsuario.verificarExistencia(novoUser.email);
-    console.log(registro);
 
     if (!registro) {
         const id = await repoUsuario.criarContaUser(novoUser);
@@ -26,7 +25,6 @@ endpoints.post('/contaadm', async (req, resp) => {
     const novoUser = req.body;
 
     const registro = await repoUsuario.verificarExistencia(novoUser.email);
-    console.log(registro);
 
     if (!registro) {
         const id = await repoUsuario.criarContaADM(novoUser);
